@@ -12,12 +12,12 @@ To run the Dehydration Diagnosis Bot on your local machine, you'll need Python 3
 
 ## Clone the repository
 <pre>
-git clone https://github.com/dealtime101/dehydration-diagnosis-bot.git
+git clone https://github.com/dealtime101/MedicalDiagnosisBot.git
 </pre>
 
 ## Navigate to the project directory
 <pre>
-cd dehydration-diagnosis-bot
+cd MedicalDiagnosisBot
 </pre>
 
 ## Optionally, set up a virtual environment
@@ -36,7 +36,7 @@ On Windows use `env\Scripts\activate`
 ## Usage
  To start the bot, run the following command in your terminal:
 <pre>
-   python dehydration_bot.py
+   python main.py
 </pre>
 
 Follow the on-screen prompts to answer questions about your current symptoms.   
