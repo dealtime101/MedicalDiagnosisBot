@@ -10,6 +10,9 @@ appearance_prompt = ("How is the patient's general appearance?\n"
 eye_prompt = ("How are the patient's eyes?\n"
               "- 1: Eyes normal or slightly sunken\n"
               "- 2: Eyes very sunken\n")
+skin_prompt = ("How is the patient's skin when you pinch it?\n"
+               "- 1: Normal skin pinch\n"
+               "- 2: Slow skin pinch\n")
 severe_dehydration = "Severe dehydration"
 some_dehydration = "Some dehydration"
 no_dehydration = "No dehydration"
@@ -19,12 +22,14 @@ def list_patients():
     print("Listing patients and diagnoses")
 
 
-def assess_skin():
-    print("Assessing skin")
+def assess_skin(skin):
+    if skin == "1":
+        return some_dehydration
+    elif skin == "2":
+        return severe_dehydration
 
 
-def assess_eyes():
-    eyes = input(eye_prompt)
+def assess_eyes(eyes):
     if eyes == "1":
         return no_dehydration
     elif eyes == "2":
@@ -34,15 +39,18 @@ def assess_eyes():
 def assess_appearance():
     appearance = input(appearance_prompt)
     if appearance == "1":
-        diagnosis = assess_eyes()
+        eyes = input(eye_prompt)
+        return assess_eyes(eyes)
     elif appearance == "2":
-        assess_skin()
+        skin = input(skin_prompt)
+        return assess_skin(skin)
 
 
 def start_new_diagnosis():
-    print("Starting a new diagnosis")
+    print("Starting a new diagnosis...")
     name = input(name_prompt)
-    assess_appearance()
+    diagnosis = assess_appearance()
+    print(name, diagnosis)
 
 
 def main():
