@@ -17,9 +17,23 @@ severe_dehydration = "Severe dehydration"
 some_dehydration = "Some dehydration"
 no_dehydration = "No dehydration"
 
+patients_and_diagnoses = [
+    f"Karen: {severe_dehydration}",
+    f"Kevin: {some_dehydration}",
+    f"Bob: {no_dehydration}"
+]
+
 
 def list_patients():
-    print("Listing patients and diagnoses")
+    print("Listing patients and diagnoses...")
+    for patient in patients_and_diagnoses:
+        print(patient)
+
+
+def save_new_diagnosis(name, diagnosis):
+    final_diagnosis = name + " - " + diagnosis
+    patients_and_diagnoses.append(final_diagnosis)
+    print("Final diagnosis: ", final_diagnosis, "\n")
 
 
 def assess_skin(skin):
@@ -50,7 +64,7 @@ def start_new_diagnosis():
     print("Starting a new diagnosis...")
     name = input(name_prompt)
     diagnosis = assess_appearance()
-    print(name, diagnosis)
+    save_new_diagnosis(name, diagnosis)
 
 
 def main():
