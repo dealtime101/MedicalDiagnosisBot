@@ -92,9 +92,21 @@ def main():
 main()
 
 
-def test_asses_skin():
+def test_assess_skin():
     print(assess_skin("1") == some_dehydration)
     print(assess_skin("2") == severe_dehydration)
     print(assess_skin("") == "")
 
-#test_asses_skin()#
+
+def test_assess_eyes():
+    print(assess_eyes("1") == no_dehydration)
+    print(assess_eyes("2") == severe_dehydration)
+    print(assess_eyes("3") == "")
+
+
+def test_assess_appearance():
+    print(assess_appearance())
+
+
+test_assess_skin()
+test_assess_eyes()
