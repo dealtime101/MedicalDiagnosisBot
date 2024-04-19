@@ -18,7 +18,6 @@ severe_dehydration = "Severe dehydration"
 some_dehydration = "Some dehydration"
 no_dehydration = "No dehydration"
 
-
 patients_and_diagnoses = [
     f"Karen: {severe_dehydration}",
     f"Kevin: {some_dehydration}",
@@ -91,3 +90,11 @@ def main():
 
 
 main()
+
+
+def test_asses_skin():
+    print(assess_skin("1") == some_dehydration)
+    print(assess_skin("2") == severe_dehydration)
+    print(assess_skin("") == "")
+
+#test_asses_skin()#
