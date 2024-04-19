@@ -13,9 +13,11 @@ eye_prompt = ("How are the patient's eyes?\n"
 skin_prompt = ("How is the patient's skin when you pinch it?\n"
                "- 1: Normal skin pinch\n"
                "- 2: Slow skin pinch\n")
+error_message = "Could not save patient and diagnosis due to invalid input"
 severe_dehydration = "Severe dehydration"
 some_dehydration = "Some dehydration"
 no_dehydration = "No dehydration"
+
 
 patients_and_diagnoses = [
     f"Karen: {severe_dehydration}",
@@ -31,6 +33,10 @@ def list_patients():
 
 
 def save_new_diagnosis(name, diagnosis):
+    if name == "" or diagnosis == "":
+        print(error_message)
+        return
+
     final_diagnosis = name + " - " + diagnosis
     patients_and_diagnoses.append(final_diagnosis)
     print("Final diagnosis: ", final_diagnosis, "\n")
@@ -41,6 +47,8 @@ def assess_skin(skin):
         return some_dehydration
     elif skin == "2":
         return severe_dehydration
+    else:
+        return ""
 
 
 def assess_eyes(eyes):
@@ -48,6 +56,8 @@ def assess_eyes(eyes):
         return no_dehydration
     elif eyes == "2":
         return severe_dehydration
+    else:
+        return ""
 
 
 def assess_appearance():
@@ -58,6 +68,8 @@ def assess_appearance():
     elif appearance == "2":
         skin = input(skin_prompt)
         return assess_skin(skin)
+    else:
+        return ""
 
 
 def start_new_diagnosis():
